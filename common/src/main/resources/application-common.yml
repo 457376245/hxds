@@ -3,13 +3,16 @@ spring:
 
 tencent:
   cloud:
-    appId: 腾讯云APPID
-    secretId: 腾讯云SecretId
-    secretKey: 腾讯云SecretKey
-    region-public: 公有存储桶所在地域
-    bucket-public: 公有存储桶名称
-    region-private: 私有存储桶所在地域
-    bucket-private: 私有存储桶名称
+    appId: 1111
+    secretId: 1111
+    secretKey: 1111
+    region-public: 1111
+    bucket-public: 1111
+    region-private: 1111
+    bucket-private: 1111
+    face:
+      groupName: 1111
+      region: 1111
 
 wx:
   app-id: 11111

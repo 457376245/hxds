@@ -18,7 +18,7 @@ public class MicroAppUtil {
     private String appSecret;
 
     public String getOpenId(String code) {
-        String url = "https://api.weixin.qq.com/sns/jscode2session";
+/*        String url = "https://api.weixin.qq.com/sns/jscode2session";
         HashMap map = new HashMap();
         map.put("appid", appId);
         map.put("secret", appSecret);
@@ -30,7 +30,8 @@ public class MicroAppUtil {
         if (openId == null || openId.length() == 0) {
             throw new RuntimeException("临时登陆凭证错误");
         }
-        return openId;
+        return openId;*/
+        return code;
     }
 
     public String getAccessToken() {
