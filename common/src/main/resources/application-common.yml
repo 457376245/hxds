@@ -1,0 +1,25 @@
+spring:
+  profiles: common
+
+tencent:
+  cloud:
+    appId: 腾讯云APPID
+    secretId: 腾讯云SecretId
+    secretKey: 腾讯云SecretKey
+    region-public: 公有存储桶所在地域
+    bucket-public: 公有存储桶名称
+    region-private: 私有存储桶所在地域
+    bucket-private: 私有存储桶名称
+
+wx:
+  app-id: 11111
+  app-secret: 11111
+  mch-id: 11111
+  key: 11111
+  cert-path: 11111
+
+minio:
+  endpoint: http://192.168.47.129:9000
+  access-key: root
+  secret-key: abc123456
+
