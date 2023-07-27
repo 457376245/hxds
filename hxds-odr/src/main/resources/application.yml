@@ -38,9 +38,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3307/hxds?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+      url: jdbc:mysql://192.168.47.129:12003/hxds_odr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
       username: root
-      password: abc123456
+      password: root
       initial-size: 4
       max-active: 8
       min-idle: 8
@@ -87,10 +87,6 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     disable-swagger-default-url: on
-tx-lcn:
-  client:
-    #连接TM节点
-    manager-address: 127.0.0.1:8070
 
 feign:
   client:
