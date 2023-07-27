@@ -90,7 +90,7 @@ public class DriverServiceImpl implements DriverService {
         return driverId;
     }
 
-   /* @Override
+  @Override
     @Transactional
     public int updateDriverAuth(Map param) {
         int rows = driverDao.updateDriverAuth(param);
@@ -99,7 +99,6 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     @Transactional
-    
     public String createDriverFaceModel(long driverId, String photo) {
         HashMap map = driverDao.searchDriverNameAndSex(driverId);
         String name = MapUtil.getStr(map, "name");
@@ -129,7 +128,6 @@ public class DriverServiceImpl implements DriverService {
         }
         return "";
     }
-
     @Override
     public HashMap login(String code, String phoneCode) {
         String openId = microAppUtil.getOpenId(code);
@@ -156,6 +154,7 @@ public class DriverServiceImpl implements DriverService {
         result.replace("summary", summary);
         return result;
     }
+    /* 
 
     @Override
     public PageUtils searchDriverByPage(Map param) {

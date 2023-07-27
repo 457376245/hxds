@@ -8,13 +8,13 @@ import java.util.Map;
 public interface DriverService {
     public String registerNewDriver(Map param);
 
-//    public int updateDriverAuth(Map param);
-//
-//    public String createDriverFaceModel(long driverId, String photo);
-//
-//    HashMap login(String code, String phoneCode);
-//
-//    public HashMap searchDriverBaseInfo(long driverId);
+    public int updateDriverAuth(Map param);
+
+    public String createDriverFaceModel(long driverId, String photo);
+
+    HashMap login(String code, String phoneCode);
+
+    public HashMap searchDriverBaseInfo(long driverId);
 //
 //    public PageUtils searchDriverByPage(Map param);
 //
