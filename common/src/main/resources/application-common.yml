@@ -14,6 +14,8 @@ tencent:
       groupName: 1111
       region: 1111
 
+  map: 
+    key: 1111
 wx:
   app-id: 11111
   app-secret: 11111
