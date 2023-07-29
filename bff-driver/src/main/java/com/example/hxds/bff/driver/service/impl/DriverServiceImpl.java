@@ -55,59 +55,59 @@ public class DriverServiceImpl implements DriverService {
         HashMap map = (HashMap) r.get("result");
         return map;
     }
-//
-//    @Override
-//    public HashMap searchDriverBaseInfo(SearchDriverBaseInfoForm form) {
-//        R r = drServiceApi.searchDriverBaseInfo(form);
-//        HashMap map = (HashMap) r.get("result");
-//        return map;
-//    }
-//
-//    @Override
-//    public HashMap searchWorkbenchData(long driverId) {
-//        SearchDriverTodayBusinessDataForm form_1 = new SearchDriverTodayBusinessDataForm();
-//        form_1.setDriverId(driverId);
-//        R r = odrServiceApi.searchDriverTodayBusinessData(form_1);
-//        HashMap business = (HashMap) r.get("result");
-//
-//        SearchDriverSettingsForm form_2 = new SearchDriverSettingsForm();
-//        form_2.setDriverId(driverId);
-//        r = drServiceApi.searchDriverSettings(form_2);
-//        HashMap settings = (HashMap) r.get("result");
-//
-//        HashMap result = new HashMap() {{
-//            put("business", business);
-//            put("settings", settings);
-//        }};
-//        return result;
-//    }
-//
-//    @Override
-//    public HashMap searchDriverAuth(SearchDriverAuthForm form) {
-//        R r = drServiceApi.searchDriverAuth(form);
-//        HashMap map = (HashMap) r.get("result");
-//        String idcardFront = MapUtil.getStr(map, "idcardFront");
-//        String idcardBack = MapUtil.getStr(map, "idcardBack");
-//        String idcardHolding = MapUtil.getStr(map, "idcardHolding");
-//        String drcardFront = MapUtil.getStr(map, "drcardFront");
-//        String drcardBack = MapUtil.getStr(map, "drcardBack");
-//        String drcardHolding = MapUtil.getStr(map, "drcardHolding");
-//
-//        String idcardFrontUrl = idcardFront.length() > 0 ? cosUtil.getPrivateFileUrl(idcardFront) : "";
-//        String idcardBackUrl = idcardBack.length() > 0 ? cosUtil.getPrivateFileUrl(idcardBack) : "";
-//        String idcardHoldingUrl = idcardHolding.length() > 0 ? cosUtil.getPrivateFileUrl(idcardHolding) : "";
-//        String drcardFrontUrl = drcardFront.length() > 0 ? cosUtil.getPrivateFileUrl(drcardFront) : "";
-//        String drcardBackUrl = drcardBack.length() > 0 ? cosUtil.getPrivateFileUrl(drcardBack) : "";
-//        String drcardHoldingUrl = drcardHolding.length() > 0 ? cosUtil.getPrivateFileUrl(drcardHolding) : "";
-//
-//        map.put("idcardFrontUrl", idcardFrontUrl);
-//        map.put("idcardBackUrl", idcardBackUrl);
-//        map.put("idcardHoldingUrl", idcardHoldingUrl);
-//        map.put("drcardFrontUrl", drcardFrontUrl);
-//        map.put("drcardBackUrl", drcardBackUrl);
-//        map.put("drcardHoldingUrl", drcardHoldingUrl);
-//        return map;
-//    }
+
+    @Override
+    public HashMap searchDriverBaseInfo(SearchDriverBaseInfoForm form) {
+        R r = drServiceApi.searchDriverBaseInfo(form);
+        HashMap map = (HashMap) r.get("result");
+        return map;
+    }
+
+    @Override
+    public HashMap searchWorkbenchData(long driverId) {
+        SearchDriverTodayBusinessDataForm form_1 = new SearchDriverTodayBusinessDataForm();
+        form_1.setDriverId(driverId);
+        R r = odrServiceApi.searchDriverTodayBusinessData(form_1);
+        HashMap business = (HashMap) r.get("result");
+
+        SearchDriverSettingsForm form_2 = new SearchDriverSettingsForm();
+        form_2.setDriverId(driverId);
+        r = drServiceApi.searchDriverSettings(form_2);
+        HashMap settings = (HashMap) r.get("result");
+
+        HashMap result = new HashMap() {{
+            put("business", business);
+            put("settings", settings);
+        }};
+        return result;
+    }
+
+    @Override
+    public HashMap searchDriverAuth(SearchDriverAuthForm form) {
+        R r = drServiceApi.searchDriverAuth(form);
+        HashMap map = (HashMap) r.get("result");
+        String idcardFront = MapUtil.getStr(map, "idcardFront");
+        String idcardBack = MapUtil.getStr(map, "idcardBack");
+        String idcardHolding = MapUtil.getStr(map, "idcardHolding");
+        String drcardFront = MapUtil.getStr(map, "drcardFront");
+        String drcardBack = MapUtil.getStr(map, "drcardBack");
+        String drcardHolding = MapUtil.getStr(map, "drcardHolding");
+
+        String idcardFrontUrl = idcardFront.length() > 0 ? cosUtil.getPrivateFileUrl(idcardFront) : "";
+        String idcardBackUrl = idcardBack.length() > 0 ? cosUtil.getPrivateFileUrl(idcardBack) : "";
+        String idcardHoldingUrl = idcardHolding.length() > 0 ? cosUtil.getPrivateFileUrl(idcardHolding) : "";
+        String drcardFrontUrl = drcardFront.length() > 0 ? cosUtil.getPrivateFileUrl(drcardFront) : "";
+        String drcardBackUrl = drcardBack.length() > 0 ? cosUtil.getPrivateFileUrl(drcardBack) : "";
+        String drcardHoldingUrl = drcardHolding.length() > 0 ? cosUtil.getPrivateFileUrl(drcardHolding) : "";
+
+        map.put("idcardFrontUrl", idcardFrontUrl);
+        map.put("idcardBackUrl", idcardBackUrl);
+        map.put("idcardHoldingUrl", idcardHoldingUrl);
+        map.put("drcardFrontUrl", drcardFrontUrl);
+        map.put("drcardBackUrl", drcardBackUrl);
+        map.put("drcardHoldingUrl", drcardHoldingUrl);
+        return map;
+    }
 
 
 }

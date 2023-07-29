@@ -56,60 +56,60 @@ public class DriverController {
         String result = driverService.createDriverFaceModel(form);
         return R.ok().put("result",result);
     }
-//
-//    @PostMapping("/login")
-//    @Operation(summary = "登陆系统")
-//    public R login(@RequestBody @Valid LoginForm form){
-//        HashMap map=driverService.login(form);
-//        if(map!=null){
-//            long driverId= MapUtil.getLong(map,"id");
-//            byte realAuth=Byte.parseByte(MapUtil.getStr(map,"realAuth"));
-//            boolean archive=MapUtil.getBool(map,"archive");
-//            StpUtil.login(driverId);
-//            String token=StpUtil.getTokenInfo().getTokenValue();
-//            return R.ok().put("token",token).put("realAuth",realAuth).put("archive",archive);
-//        }
-//        return R.ok();
-//    }
-//
-//    @GetMapping("/logout")
-//    @Operation(summary = "退出系统")
-//    @SaCheckLogin
-//    public R logout(){
-//        StpUtil.logout();
-//        return R.ok();
-//    }
-//
-//    @PostMapping("/searchDriverBaseInfo")
-//    @Operation(summary = "查询司机基本信息")
-//    @SaCheckLogin
-//    public R searchDriverBaseInfo(){
-//        long driverId=StpUtil.getLoginIdAsLong();
-//        SearchDriverBaseInfoForm form=new SearchDriverBaseInfoForm();
-//        form.setDriverId(driverId);
-//        HashMap map = driverService.searchDriverBaseInfo(form);
-//        return R.ok().put("result",map);
-//    }
-//
-//    @PostMapping("/searchWorkbenchData")
-//    @Operation(summary = "查询司机工作台数据")
-//    @SaCheckLogin
-//    public R searchWorkbenchData(){
-//        long driverId = StpUtil.getLoginIdAsLong();
-//        HashMap result = driverService.searchWorkbenchData(driverId);
-//        return R.ok().put("result",result);
-//    }
-//
-//    @GetMapping("/searchDriverAuth")
-//    @Operation(summary = "查询司机认证信息")
-//    @SaCheckLogin
-//    public R searchDriverAuth(){
-//        long driverId = StpUtil.getLoginIdAsLong();
-//        SearchDriverAuthForm form=new SearchDriverAuthForm();
-//        form.setDriverId(driverId);
-//        HashMap map = driverService.searchDriverAuth(form);
-//        return R.ok().put("result",map);
-//    }
+
+    @PostMapping("/login")
+    @Operation(summary = "登陆系统")
+    public R login(@RequestBody @Valid LoginForm form){
+        HashMap map=driverService.login(form);
+        if(map!=null){
+            long driverId= MapUtil.getLong(map,"id");
+            byte realAuth=Byte.parseByte(MapUtil.getStr(map,"realAuth"));
+            boolean archive=MapUtil.getBool(map,"archive");
+            StpUtil.login(driverId);
+            String token=StpUtil.getTokenInfo().getTokenValue();
+            return R.ok().put("token",token).put("realAuth",realAuth).put("archive",archive);
+        }
+        return R.ok();
+    }
+
+    @GetMapping("/logout")
+    @Operation(summary = "退出系统")
+    @SaCheckLogin
+    public R logout(){
+        StpUtil.logout();
+        return R.ok();
+    }
+
+    @PostMapping("/searchDriverBaseInfo")
+    @Operation(summary = "查询司机基本信息")
+    @SaCheckLogin
+    public R searchDriverBaseInfo(){
+        long driverId=StpUtil.getLoginIdAsLong();
+        SearchDriverBaseInfoForm form=new SearchDriverBaseInfoForm();
+        form.setDriverId(driverId);
+        HashMap map = driverService.searchDriverBaseInfo(form);
+        return R.ok().put("result",map);
+    }
+
+    @PostMapping("/searchWorkbenchData")
+    @Operation(summary = "查询司机工作台数据")
+    @SaCheckLogin
+    public R searchWorkbenchData(){
+        long driverId = StpUtil.getLoginIdAsLong();
+        HashMap result = driverService.searchWorkbenchData(driverId);
+        return R.ok().put("result",result);
+    }
+
+    @GetMapping("/searchDriverAuth")
+    @Operation(summary = "查询司机认证信息")
+    @SaCheckLogin
+    public R searchDriverAuth(){
+        long driverId = StpUtil.getLoginIdAsLong();
+        SearchDriverAuthForm form=new SearchDriverAuthForm();
+        form.setDriverId(driverId);
+        HashMap map = driverService.searchDriverAuth(form);
+        return R.ok().put("result",map);
+    }
 //
 //    @PostMapping("/startWork")
 //    @Operation(summary = "开始接单")

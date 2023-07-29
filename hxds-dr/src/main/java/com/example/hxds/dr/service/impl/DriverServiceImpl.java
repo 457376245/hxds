@@ -154,7 +154,6 @@ public class DriverServiceImpl implements DriverService {
         result.replace("summary", summary);
         return result;
     }
-    /* 
 
     @Override
     public PageUtils searchDriverByPage(Map param) {
@@ -185,12 +184,12 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     @Transactional
-    
+
     public int updateDriverRealAuth(Map param) {
         int rows = driverDao.updateDriverRealAuth(param);
         return rows;
     }
-
+/*
     @Override
     public HashMap searchDriverBriefInfo(long driverId) {
         HashMap map = driverDao.searchDriverBriefInfo(driverId);

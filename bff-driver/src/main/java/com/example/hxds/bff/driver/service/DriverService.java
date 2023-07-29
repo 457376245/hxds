@@ -12,12 +12,12 @@ public interface DriverService {
     public String createDriverFaceModel(CreateDriverFaceModelForm form);
 
     public HashMap login(LoginForm form);
+    
+    public HashMap searchDriverBaseInfo(SearchDriverBaseInfoForm form);
+
+    public HashMap searchWorkbenchData(long driverId);
 //
-//    public HashMap searchDriverBaseInfo(SearchDriverBaseInfoForm form);
-//
-//    public HashMap searchWorkbenchData(long driverId);
-//
-//    public HashMap searchDriverAuth(SearchDriverAuthForm form);
+    public HashMap searchDriverAuth(SearchDriverAuthForm form);
 
 
 }

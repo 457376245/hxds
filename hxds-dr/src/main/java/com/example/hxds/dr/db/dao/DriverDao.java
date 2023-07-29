@@ -22,16 +22,16 @@ public interface DriverDao {
     public HashMap login(String openId);
 
     public HashMap searchDriverBaseInfo(long driverId);
+
+    public ArrayList<HashMap> searchDriverByPage(Map param);
+
+    public long searchDriverCount(Map param);
+
+    public HashMap searchDriverAuth(long driverId);
 //
-//    public ArrayList<HashMap> searchDriverByPage(Map param);
+    public HashMap searchDriverRealSummary(long driverId);
 //
-//    public long searchDriverCount(Map param);
-//
-//    public HashMap searchDriverAuth(long driverId);
-//
-//    public HashMap searchDriverRealSummary(long driverId);
-//
-//    public int updateDriverRealAuth(Map param);
+    public int updateDriverRealAuth(Map param);
 //
 //    public HashMap searchDriverBriefInfo(long driverId);
 //

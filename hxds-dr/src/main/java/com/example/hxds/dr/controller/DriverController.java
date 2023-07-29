@@ -60,32 +60,32 @@ public class DriverController {
         HashMap result = driverService.searchDriverBaseInfo(form.getDriverId());
         return R.ok().put("result", result);
     }
-//
-//    @PostMapping("/searchDriverByPage")
-//    @Operation(summary = "查询司机分页记录")
-//    public R searchDriverByPage(@RequestBody @Valid SearchDriverByPageForm form) {
-//        Map param = BeanUtil.beanToMap(form);
-//        int page = form.getPage();
-//        int length = form.getLength();
-//        int start = (page - 1) * length;
-//        param.put("start", start);
-//        PageUtils pageUtils = driverService.searchDriverByPage(param);
-//        return R.ok().put("result", pageUtils);
-//    }
-//
-//    @PostMapping("/searchDriverAuth")
-//    @Operation(summary = "查询司机认证信息")
-//    public R searchDriverAuth(@RequestBody @Valid SearchDriverAuthForm form) {
-//        HashMap result = driverService.searchDriverAuth(form.getDriverId());
-//        return R.ok().put("result", result);
-//    }
-//
-//    @PostMapping("/searchDriverRealSummary")
-//    @Operation(summary = "查询司机实名信息摘要")
-//    public R searchDriverRealSummary(@RequestBody @Valid SearchDriverRealSummaryForm form) {
-//        HashMap map = driverService.searchDriverRealSummary(form.getDriverId());
-//        return R.ok().put("result", map);
-//    }
+
+    @PostMapping("/searchDriverByPage")
+    @Operation(summary = "查询司机分页记录")
+    public R searchDriverByPage(@RequestBody @Valid SearchDriverByPageForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        int page = form.getPage();
+        int length = form.getLength();
+        int start = (page - 1) * length;
+        param.put("start", start);
+        PageUtils pageUtils = driverService.searchDriverByPage(param);
+        return R.ok().put("result", pageUtils);
+    }
+
+    @PostMapping("/searchDriverAuth")
+    @Operation(summary = "查询司机认证信息")
+    public R searchDriverAuth(@RequestBody @Valid SearchDriverAuthForm form) {
+        HashMap result = driverService.searchDriverAuth(form.getDriverId());
+        return R.ok().put("result", result);
+    }
+
+    @PostMapping("/searchDriverRealSummary")
+    @Operation(summary = "查询司机实名信息摘要")
+    public R searchDriverRealSummary(@RequestBody @Valid SearchDriverRealSummaryForm form) {
+        HashMap map = driverService.searchDriverRealSummary(form.getDriverId());
+        return R.ok().put("result", map);
+    }
 //
 //    @PostMapping("/updateDriverRealAuth")
 //    @Operation(summary = "更新司机实名认证状态")
