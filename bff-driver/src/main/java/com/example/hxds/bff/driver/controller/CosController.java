@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -31,7 +32,7 @@ public class CosController {
     @PostMapping("/uploadCosPrivateFile")
     @SaCheckLogin
     @Operation(summary = "上传文件")
-    public R uploadCosPrivateFile(@Param("file") MultipartFile file, @Param("module") String module){
+    public R uploadCosPrivateFile(@Param("file") MultipartFile file,@Param("module") String module){
         if(file.isEmpty()){
             throw new HxdsException("上传文件不能为空");
         }

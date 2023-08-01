@@ -39,12 +39,12 @@ import java.util.concurrent.TimeUnit;
 public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderDao orderDao;
-//
-//    @Resource
-//    private OrderBillDao orderBillDao;
-//
-//    @Resource
-//    private RedisTemplate redisTemplate;
+
+    @Resource
+    private OrderBillDao orderBillDao;
+
+    @Resource
+    private RedisTemplate redisTemplate;
 //
 //    @Resource
 //    private DrServiceApi drServiceApi;
@@ -71,27 +71,26 @@ public class OrderServiceImpl implements OrderService {
         result.replace("income", income);
         return result;
     }
-//
-//    @Override
-//    @Transactional
-//    @LcnTransaction
-//    public String insertOrder(OrderEntity orderEntity, OrderBillEntity orderBillEntity) {
-//        int rows = orderDao.insert(orderEntity);
-//        if (rows == 1) {
-//            String id = orderDao.searchOrderIdByUUID(orderEntity.getUuid());
-//            orderBillEntity.setOrderId(Long.parseLong(id));
-//            rows = orderBillDao.insert(orderBillEntity);
-//            if (rows == 1) {
-//                redisTemplate.opsForValue().set("order#" + id, "none");
-//                redisTemplate.expire("order#" + id, 1, TimeUnit.MINUTES);
-//                return id;
-//            } else {
-//                throw new HxdsException("保存新订单费用失败");
-//            }
-//        } else {
-//            throw new HxdsException("保存新订单失败");
-//        }
-//    }
+
+    @Override
+    @Transactional
+    public String insertOrder(OrderEntity orderEntity, OrderBillEntity orderBillEntity) {
+        int rows = orderDao.insert(orderEntity);
+        if (rows == 1) {
+            String id = orderDao.searchOrderIdByUUID(orderEntity.getUuid());
+            orderBillEntity.setOrderId(Long.parseLong(id));
+            rows = orderBillDao.insert(orderBillEntity);
+            if (rows == 1) {
+                redisTemplate.opsForValue().set("order#" + id, "none");
+                redisTemplate.expire("order#" + id, 1, TimeUnit.MINUTES);
+                return id;
+            } else {
+                throw new HxdsException("保存新订单费用失败");
+            }
+        } else {
+            throw new HxdsException("保存新订单失败");
+        }
+    }
 //
 //    @Override
 //    @Transactional

@@ -24,33 +24,33 @@ public class DriverLocationController {
     @Resource
     private DriverLocationService driverLocationService;
 
-//    @PostMapping("/updateLocationCache")
-//    @Operation(summary = "更新司机GPS定位缓存")
-//    public R updateLocationCache(@RequestBody @Valid UpdateLocationCacheForm form) {
-//        Map param = BeanUtil.beanToMap(form);
-//        driverLocationService.updateLocationCache(param);
-//        return R.ok();
-//    }
-//
-//    @PostMapping("/removeLocationCache")
-//    @Operation(summary = "删除司机GPS定位缓存")
-//    public R removeLocationCache(@RequestBody @Valid RemoveLocationCacheForm form) {
-//        driverLocationService.removeLocationCache(form.getDriverId());
-//        return R.ok();
-//    }
-//
-//    @PostMapping("/searchBefittingDriverAboutOrder")
-//    @Operation(summary = "查询符合某个订单接单的司机列表")
-//    public R searchBefittingDriverAboutOrder(@RequestBody @Valid SearchBefittingDriverAboutOrderForm form) {
-//        double startPlaceLatitude = Double.parseDouble(form.getStartPlaceLatitude());
-//        double startPlaceLongitude = Double.parseDouble(form.getStartPlaceLongitude());
-//        double endPlaceLatitude = Double.parseDouble(form.getEndPlaceLatitude());
-//        double endPlaceLongitude = Double.parseDouble(form.getEndPlaceLongitude());
-//        double mileage = Double.parseDouble(form.getMileage());
-//        ArrayList list = driverLocationService.searchBefittingDriverAboutOrder(startPlaceLatitude, startPlaceLongitude,
-//                endPlaceLatitude, endPlaceLongitude, mileage);
-//        return R.ok().put("result", list);
-//    }
+    @PostMapping("/updateLocationCache")
+    @Operation(summary = "更新司机GPS定位缓存")
+    public R updateLocationCache(@RequestBody @Valid UpdateLocationCacheForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        driverLocationService.updateLocationCache(param);
+        return R.ok();
+    }
+
+    @PostMapping("/removeLocationCache")
+    @Operation(summary = "删除司机GPS定位缓存")
+    public R removeLocationCache(@RequestBody @Valid RemoveLocationCacheForm form) {
+        driverLocationService.removeLocationCache(form.getDriverId());
+        return R.ok();
+    }
+
+    @PostMapping("/searchBefittingDriverAboutOrder")
+    @Operation(summary = "查询符合某个订单接单的司机列表")
+    public R searchBefittingDriverAboutOrder(@RequestBody @Valid SearchBefittingDriverAboutOrderForm form) {
+        double startPlaceLatitude = Double.parseDouble(form.getStartPlaceLatitude());
+        double startPlaceLongitude = Double.parseDouble(form.getStartPlaceLongitude());
+        double endPlaceLatitude = Double.parseDouble(form.getEndPlaceLatitude());
+        double endPlaceLongitude = Double.parseDouble(form.getEndPlaceLongitude());
+        double mileage = Double.parseDouble(form.getMileage());
+        ArrayList list = driverLocationService.searchBefittingDriverAboutOrder(startPlaceLatitude, startPlaceLongitude,
+                endPlaceLatitude, endPlaceLongitude, mileage);
+        return R.ok().put("result", list);
+    }
 //
 //    @PostMapping("/updateOrderLocationCache")
 //    @Operation(summary = "更新订单定位缓存")

@@ -10,8 +10,8 @@ import java.util.Map;
 
 public interface OrderService {
     public HashMap searchDriverTodayBusinessData(long driverId);
-//
-//    public String insertOrder(OrderEntity orderEntity, OrderBillEntity orderBillEntity);
+
+    public String insertOrder(OrderEntity orderEntity, OrderBillEntity orderBillEntity);
 //
 //    public String acceptNewOrder(long driverId, long orderId);
 //

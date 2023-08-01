@@ -72,23 +72,33 @@ public class DriverLocationServiceImpl implements DriverLocationService {
                                                      double endPlaceLatitude,
                                                      double endPlaceLongitude,
                                                      double mileage) {
+        //客户下单点
         Point point = new Point(startPlaceLongitude, startPlaceLatitude);
+        //距离单位
         Metric metric = RedisGeoCommands.DistanceUnit.KILOMETERS;
+        //客户下单点5公里
         Distance distance = new Distance(5, metric);
+        //客户下单点5公里圆心
         Circle circle = new Circle(point, distance);
 
+        //定义结果返回格式
         RedisGeoCommands.GeoRadiusCommandArgs args = RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs()
                 .includeDistance().includeCoordinates().sortAscending();
+        
+        //根据circle获取driver_location中符合条件的地理位置集合
         GeoResults<RedisGeoCommands.GeoLocation<String>> radius = redisTemplate.opsForGeo().radius("driver_location", circle, args);
 
         ArrayList list = new ArrayList();
         if (radius != null) {
+            //迭代器遍历返回结果
             Iterator<GeoResult<RedisGeoCommands.GeoLocation<String>>> iterator = radius.iterator();
             while (iterator.hasNext()) {
                 GeoResult<RedisGeoCommands.GeoLocation<String>> result = iterator.next();
                 RedisGeoCommands.GeoLocation<String> content = result.getContent();
+                //获取司机id
                 String driverId = content.getName();
                 double dist = result.getDistance().getValue();
+                //查询该司机是否有定向接单
                 if (!redisTemplate.hasKey("driver_online#" + driverId)) {
                     continue;
                 }
@@ -97,13 +107,16 @@ public class DriverLocationServiceImpl implements DriverLocationService {
                     continue;
                 }
                 String value = obj.toString();
+                //定向接单格式为：rangeDistance#orderDistance#orientation  接单范围#订单里程范围#定向接单经纬度
                 String[] temp = value.split("#");
                 int rangeDistance = Integer.parseInt(temp[0]);
                 int orderDistance = Integer.parseInt(temp[1]);
                 String orientation = temp[2];
 
+                //判断接单范围是否覆盖订单
                 boolean bool_1 = (dist <= rangeDistance);
                 boolean bool_2 = false;
+                //判断订单里程是否小于司机接单里程
                 if (orderDistance == 0) {
                     bool_2 = true;
                 } else if (orderDistance == 5 && mileage > 0 && mileage <= 5) {
@@ -116,6 +129,7 @@ public class DriverLocationServiceImpl implements DriverLocationService {
                     bool_2 = true;
                 }
 
+                //判断订单目的地是否在司机定向接单地点3公里以内
                 boolean bool_3 = false;
                 if (!orientation.equals("none")) {
                     double orientationLatitude = Double.parseDouble(orientation.split(",")[0]);
@@ -135,6 +149,7 @@ public class DriverLocationServiceImpl implements DriverLocationService {
                 } else {
                     bool_3 = true;
                 }
+                //三者同时满足时返回司机id
                 if (bool_1 && bool_2 && bool_3) {
                     HashMap map = new HashMap() {{
                         put("driverId", driverId);

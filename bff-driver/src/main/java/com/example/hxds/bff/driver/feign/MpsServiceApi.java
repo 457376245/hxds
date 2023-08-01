@@ -4,8 +4,12 @@ import com.example.hxds.bff.driver.controller.form.RemoveLocationCacheForm;
 import com.example.hxds.bff.driver.controller.form.UpdateLocationCacheForm;
 import com.example.hxds.bff.driver.controller.form.UpdateOrderLocationCacheForm;
 import com.example.hxds.common.util.R;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.validation.Valid;
 
 @FeignClient(value = "hxds-mps")
 public interface MpsServiceApi {

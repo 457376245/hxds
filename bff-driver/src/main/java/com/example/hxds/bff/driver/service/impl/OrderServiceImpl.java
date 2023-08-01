@@ -3,6 +3,7 @@ package com.example.hxds.bff.driver.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.NumberUtil;
+import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.example.hxds.bff.driver.controller.form.*;
 import com.example.hxds.bff.driver.feign.*;
 import com.example.hxds.bff.driver.service.OrderService;
@@ -36,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    
+    @LcnTransaction
     @Transactional
     public String acceptNewOrder(AcceptNewOrderForm form) {
         R r = odrServiceApi.acceptNewOrder(form);
@@ -88,7 +89,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    
+    @LcnTransaction
     public int arriveStartPlace(ArriveStartPlaceForm form) {
         R r = odrServiceApi.arriveStartPlace(form);
         int rows = MapUtil.getInt(r, "rows");
@@ -100,7 +101,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    
+    @LcnTransaction
     public int startDriving(StartDrivingForm form) {
         R r = odrServiceApi.startDriving(form);
         int rows = MapUtil.getInt(r, "rows");
@@ -116,7 +117,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    
+    @LcnTransaction
     public int updateOrderStatus(UpdateOrderStatusForm form) {
         R r = odrServiceApi.updateOrderStatus(form);
         int rows = MapUtil.getInt(r, "rows");
@@ -142,7 +143,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    
+    @LcnTransaction
     public int updateOrderBill(UpdateBillFeeForm form) {
         ValidDriverOwnOrderForm form_1 = new ValidDriverOwnOrderForm();
         form_1.setOrderId(form.getOrderId());

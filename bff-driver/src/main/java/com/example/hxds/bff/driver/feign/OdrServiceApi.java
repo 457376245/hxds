@@ -1,9 +1,16 @@
 package com.example.hxds.bff.driver.feign;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.example.hxds.bff.driver.controller.form.*;
 import com.example.hxds.common.util.R;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 @FeignClient(value = "hxds-odr")
 public interface OdrServiceApi {

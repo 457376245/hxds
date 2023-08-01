@@ -2,6 +2,7 @@ package com.example.hxds.bff.driver.service;
 
 import com.example.hxds.bff.driver.controller.form.*;
 import com.example.hxds.common.util.PageUtils;
+import com.example.hxds.common.util.R;
 
 import java.util.HashMap;
 
@@ -26,7 +27,7 @@ public interface OrderService {
 
     public Integer searchOrderStatus(SearchOrderStatusForm form);
 
-    public String updateOrderAboutPayment(long driverId, UpdateOrderAboutPaymentForm form);
+    public String updateOrderAboutPayment(long driverId,UpdateOrderAboutPaymentForm form);
 
     public PageUtils searchDriverOrderByPage(SearchDriverOrderByPageForm form);
 
