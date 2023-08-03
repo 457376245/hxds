@@ -15,12 +15,12 @@ public interface OdrServiceApi {
 
     @PostMapping("/order/insertOrder")
     public R insertOrder(InsertOrderForm form);
-//
-//    @PostMapping("/order/searchOrderStatus")
-//    public R searchOrderStatus(SearchOrderStatusForm form);
-//
-//    @PostMapping("/order/deleteUnAcceptOrder")
-//    public R deleteUnAcceptOrder(DeleteUnAcceptOrderForm form);
+
+    @PostMapping("/order/searchOrderStatus")
+    public R searchOrderStatus(SearchOrderStatusForm form);
+
+    @PostMapping("/order/deleteUnAcceptOrder")
+    public R deleteUnAcceptOrder(DeleteUnAcceptOrderForm form);
 //
 //    @PostMapping("/order/hasCustomerCurrentOrder")
 //    public R hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form);

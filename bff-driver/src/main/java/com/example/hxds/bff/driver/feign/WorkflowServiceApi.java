@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @FeignClient(value = "hxds-workflow")
 public interface WorkflowServiceApi {
-
-    @PostMapping("/comment/startCommentWorkflow")
-    public R startCommentWorkflow(StartCommentWorkflowForm form);
+//
+//    @PostMapping("/comment/startCommentWorkflow")
+//    public R startCommentWorkflow(StartCommentWorkflowForm form);
 }

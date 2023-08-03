@@ -13,11 +13,11 @@ import javax.annotation.Resource;
 public class OrderGpsServiceImpl implements OrderGpsService {
     @Resource
     private NebulaServiceApi nebulaServiceApi;
-
-    @Override
-    public int insertOrderGps(InsertOrderGpsForm form) {
-        R r = nebulaServiceApi.insertOrderGps(form);
-        int rows = MapUtil.getInt(r, "rows");
-        return rows;
-    }
+//
+//    @Override
+//    public int insertOrderGps(InsertOrderGpsForm form) {
+//        R r = nebulaServiceApi.insertOrderGps(form);
+//        int rows = MapUtil.getInt(r, "rows");
+//        return rows;
+//    }
 }

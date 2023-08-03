@@ -12,8 +12,8 @@ public interface OrderService {
 
     public Integer searchOrderStatus(SearchOrderStatusForm form);
 
-//    public String deleteUnAcceptOrder(DeleteUnAcceptOrderForm form);
-//
+    public String deleteUnAcceptOrder(DeleteUnAcceptOrderForm form);
+
 //    public HashMap hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form);
 //
 //    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form);

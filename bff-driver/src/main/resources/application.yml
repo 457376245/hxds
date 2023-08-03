@@ -3,7 +3,7 @@ server:
     threads:
       acceptors: 4
       selectors: 8
-  port: 8101
+  port: 8103
   servlet:
     context-path: /
 

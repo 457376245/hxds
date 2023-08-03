@@ -4,5 +4,5 @@ import com.example.hxds.bff.driver.controller.form.StartCommentWorkflowForm;
 
 
 public interface OrderCommentService {
-    public void startCommentWorkflow(StartCommentWorkflowForm form);
+//    public void startCommentWorkflow(StartCommentWorkflowForm form);
 }

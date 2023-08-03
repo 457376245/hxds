@@ -14,15 +14,12 @@ public class MessageEntity implements Serializable {
     @Id
     private String _id;
 
-    @Indexed(unique = true)
-    private String uuid;
-
     @Indexed
     private Long senderId;
 
     private String senderIdentity;
 
-    private String senderPhoto = "http://static-1258386385.cos.ap-beijing.myqcloud.com/img/System.jpg";
+    private String senderPhoto = "http://static-12583863851.cos.ap-beijing.myqcloud.com/img/System.jpg";
 
     private String senderName;
 

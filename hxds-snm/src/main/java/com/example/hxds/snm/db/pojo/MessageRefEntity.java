@@ -13,7 +13,7 @@ public class MessageRefEntity implements Serializable {
     @Id
     private String _id;
 
-    @Indexed
+    @Indexed(unique = true)
     private String messageId;
 
     @Indexed

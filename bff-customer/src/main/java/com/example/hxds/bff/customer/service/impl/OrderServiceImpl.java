@@ -81,11 +81,11 @@ public class OrderServiceImpl implements OrderService {
         R r = mpsServiceApi.estimateOrderMileageAndMinute(form_1);
         HashMap map = (HashMap) r.get("result");
         
-        //获取预估里程和时间
+            //获取预估里程和时间
         String mileage = MapUtil.getStr(map, "mileage");
         int minute = MapUtil.getInt(map, "minute");
 
-        //预估代驾费用的表单
+            //预估代驾费用的表单
         EstimateOrderChargeForm form_2 = new EstimateOrderChargeForm();
         form_2.setMileage(mileage);
         form_2.setTime(new DateTime().toTimeStr());
@@ -149,6 +149,8 @@ public class OrderServiceImpl implements OrderService {
 
             //发送通知给符合条件的司机抢单
             SendNewOrderMessageForm form_5 = new SendNewOrderMessageForm();
+            
+            //把list中的司机信息取出来，组合成数组
             String[] driverContent = new String[list.size()];
             for (int i = 0; i < list.size(); i++) {
                 HashMap one = list.get(i);
@@ -176,22 +178,22 @@ public class OrderServiceImpl implements OrderService {
         }
         return result;
     }
-//
-//    @Override
-//    public Integer searchOrderStatus(SearchOrderStatusForm form) {
-//        R r = odrServiceApi.searchOrderStatus(form);
-//        Integer status = MapUtil.getInt(r, "result");
-//        return status;
-//    }
-//
-//    @Override
-//    @Transactional
-//     
-//    public String deleteUnAcceptOrder(DeleteUnAcceptOrderForm form) {
-//        R r = odrServiceApi.deleteUnAcceptOrder(form);
-//        String result = MapUtil.getStr(r, "result");
-//        return result;
-//    }
+
+    @Override
+    public Integer searchOrderStatus(SearchOrderStatusForm form) {
+        R r = odrServiceApi.searchOrderStatus(form);
+        Integer status = MapUtil.getInt(r, "result");
+        return status;
+    }
+
+    @Override
+    @Transactional
+
+    public String deleteUnAcceptOrder(DeleteUnAcceptOrderForm form) {
+        R r = odrServiceApi.deleteUnAcceptOrder(form);
+        String result = MapUtil.getStr(r, "result");
+        return result;
+    }
 //
 //    @Override
 //    public HashMap hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form) {

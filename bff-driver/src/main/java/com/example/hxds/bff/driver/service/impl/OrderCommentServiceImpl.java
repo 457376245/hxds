@@ -1,6 +1,5 @@
 package com.example.hxds.bff.driver.service.impl;
 
-import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.example.hxds.bff.driver.controller.form.StartCommentWorkflowForm;
 import com.example.hxds.bff.driver.feign.OdrServiceApi;
 import com.example.hxds.bff.driver.feign.WorkflowServiceApi;
@@ -16,10 +15,10 @@ public class OrderCommentServiceImpl implements OrderCommentService {
     private WorkflowServiceApi workflowServiceApi;
 
 
-    @Override
-    @Transactional
-    @LcnTransaction
-    public void startCommentWorkflow(StartCommentWorkflowForm form) {
-        workflowServiceApi.startCommentWorkflow(form);
-    }
+//    @Override
+//    @Transactional
+// 
+//    public void startCommentWorkflow(StartCommentWorkflowForm form) {
+//        workflowServiceApi.startCommentWorkflow(form);
+//    }
 }

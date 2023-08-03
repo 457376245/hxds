@@ -15,10 +15,10 @@ public class MessageServiceImpl implements MessageService {
     private SnmServiceApi snmServiceApi;
 
 
-//    @Override
-//    public String receiveBillMessage(ReceiveBillMessageForm form) {
-//        R r = snmServiceApi.receiveBillMessage(form);
-//        String msg=MapUtil.getStr(r,"result");
-//        return msg;
-//    }
+    @Override
+    public String receiveBillMessage(ReceiveBillMessageForm form) {
+        R r = snmServiceApi.receiveBillMessage(form);
+        String msg=MapUtil.getStr(r,"result");
+        return msg;
+    }
 }

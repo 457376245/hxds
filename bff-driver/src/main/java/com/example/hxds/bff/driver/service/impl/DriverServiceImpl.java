@@ -2,7 +2,6 @@ package com.example.hxds.bff.driver.service.impl;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.map.MapUtil;
-import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.example.hxds.bff.driver.controller.form.*;
 import com.example.hxds.bff.driver.feign.DrServiceApi;
 import com.example.hxds.bff.driver.feign.OdrServiceApi;
@@ -28,7 +27,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     @Transactional
-    @LcnTransaction
+     
     public long registerNewDriver(RegisterNewDriverForm form) {
         R r = drServiceApi.registerNewDriver(form);
         long userId = Convert.toLong(r.get("userId"));
@@ -37,7 +36,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     @Transactional
-    @LcnTransaction
+     
     public int updateDriverAuth(UpdateDriverAuthForm form) {
         R r = drServiceApi.updateDriverAuth(form);
         int rows = Convert.toInt(r.get("rows"));
@@ -46,7 +45,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     @Transactional
-    @LcnTransaction
+     
     public String createDriverFaceModel(CreateDriverFaceModelForm form) {
         R r = drServiceApi.createDriverFaceModel(form);
         String result = MapUtil.getStr(r, "result");

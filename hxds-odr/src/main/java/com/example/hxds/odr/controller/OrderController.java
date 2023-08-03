@@ -88,38 +88,38 @@ public class OrderController {
         String id = orderService.insertOrder(orderEntity, orderBillEntity);
         return R.ok().put("result", id);
     }
-//
-//    @PostMapping("/acceptNewOrder")
-//    @Operation(summary = "司机接单")
-//    public R acceptNewOrder(@RequestBody @Valid AcceptNewOrderForm form) {
-//        String result = orderService.acceptNewOrder(form.getDriverId(), form.getOrderId());
-//        return R.ok().put("result", result);
-//    }
-//
-//    @PostMapping("/searchDriverExecuteOrder")
-//    @Operation(summary = "查询司机正在执行的订单记录")
-//    public R searchDriverExecuteOrder(@RequestBody @Valid SearchDriverExecuteOrderForm form) {
-//        Map param = BeanUtil.beanToMap(form);
-//        HashMap map = orderService.searchDriverExecuteOrder(param);
-//        return R.ok().put("result", map);
-//    }
-//
-//    @PostMapping("/searchOrderStatus")
-//    @Operation(summary = "查询订单状态")
-//    public R searchOrderStatus(@RequestBody @Valid SearchOrderStatusForm form) {
-//        Map param = BeanUtil.beanToMap(form);
-//        Integer status = orderService.searchOrderStatus(param);
-//        return R.ok().put("result", status);
-//    }
-//
-//    @PostMapping("/deleteUnAcceptOrder")
-//    @Operation(summary = "删除没有司机接单的订单")
-//    public R deleteUnAcceptOrder(@RequestBody @Valid DeleteUnAcceptOrderForm form) {
-//        Map param = BeanUtil.beanToMap(form);
-//        String result = orderService.deleteUnAcceptOrder(param);
-//        return R.ok().put("result", result);
-//    }
-//
+
+    @PostMapping("/acceptNewOrder")
+    @Operation(summary = "司机接单")
+    public R acceptNewOrder(@RequestBody @Valid AcceptNewOrderForm form) {
+        String result = orderService.acceptNewOrder(form.getDriverId(), form.getOrderId());
+        return R.ok().put("result", result);
+    }
+
+    @PostMapping("/searchDriverExecuteOrder")
+    @Operation(summary = "查询司机正在执行的订单记录")
+    public R searchDriverExecuteOrder(@RequestBody @Valid SearchDriverExecuteOrderForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        HashMap map = orderService.searchDriverExecuteOrder(param);
+        return R.ok().put("result", map);
+    }
+
+    @PostMapping("/searchOrderStatus")
+    @Operation(summary = "查询订单状态")
+    public R searchOrderStatus(@RequestBody @Valid SearchOrderStatusForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        Integer status = orderService.searchOrderStatus(param);
+        return R.ok().put("result", status);
+    }
+
+    @PostMapping("/deleteUnAcceptOrder")
+    @Operation(summary = "删除没有司机接单的订单")
+    public R deleteUnAcceptOrder(@RequestBody @Valid DeleteUnAcceptOrderForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        String result = orderService.deleteUnAcceptOrder(param);
+        return R.ok().put("result", result);
+    }
+
 //    @PostMapping("/searchDriverCurrentOrder")
 //    @Operation(summary = "查询司机当前订单")
 //    public R searchDriverCurrentOrder(@RequestBody @Valid SearchDriverCurrentOrderForm form) {

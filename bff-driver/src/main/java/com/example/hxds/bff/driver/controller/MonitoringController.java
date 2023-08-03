@@ -23,15 +23,15 @@ public class MonitoringController {
     private NebulaServiceApi nebulaServiceApi;
 
 
-    @PostMapping(value = "/uploadRecordFile")
-    public R uploadRecordFile(@RequestPart("file") MultipartFile file,
-                              @RequestPart("name") String name,
-                              @RequestPart(value = "text", required = false) String text) {
-        if (file.isEmpty()) {
-            throw new HxdsException("上传文件不能为空");
-        }
-        nebulaServiceApi.uploadRecordFile(file, name, text);
-
-        return R.ok();
-    }
+//    @PostMapping(value = "/uploadRecordFile")
+//    public R uploadRecordFile(@RequestPart("file") MultipartFile file,
+//                              @RequestPart("name") String name,
+//                              @RequestPart(value = "text", required = false) String text) {
+//        if (file.isEmpty()) {
+//            throw new HxdsException("上传文件不能为空");
+//        }
+//        nebulaServiceApi.uploadRecordFile(file, name, text);
+//
+//        return R.ok();
+//    }
 }

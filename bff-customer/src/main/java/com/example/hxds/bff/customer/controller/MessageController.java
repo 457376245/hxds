@@ -21,15 +21,15 @@ import javax.validation.Valid;
 public class MessageController {
     @Resource
     private MessageService messageService;
-//
-//    @PostMapping("/receiveBillMessage")
-//    @SaCheckLogin
-//    @Operation(summary = "同步接收新订单消息")
-//    public R receiveBillMessage(@RequestBody @Valid ReceiveBillMessageForm form){
-//        long customerId = StpUtil.getLoginIdAsLong();
-//        form.setUserId(customerId);
-//        form.setIdentity("customer_bill");
-//        String msg = messageService.receiveBillMessage(form);
-//        return R.ok().put("result",msg);
-//    }
+
+    @PostMapping("/receiveBillMessage")
+    @SaCheckLogin
+    @Operation(summary = "同步接收新订单消息")
+    public R receiveBillMessage(@RequestBody @Valid ReceiveBillMessageForm form){
+        long customerId = StpUtil.getLoginIdAsLong();
+        form.setUserId(customerId);
+        form.setIdentity("customer_bill");
+        String msg = messageService.receiveBillMessage(form);
+        return R.ok().put("result",msg);
+    }
 }

@@ -22,15 +22,15 @@ public class OrderGpsController {
     @Resource
     private OrderGpsService orderGpsService;
 
-    @PostMapping("/insertOrderGps")
-    @SaCheckLogin
-    @Operation(summary = "添加订单GPS记录")
-    public R insertOrderGps(@RequestBody @Valid InsertOrderGpsForm form){
-        long driverId = StpUtil.getLoginIdAsLong();
-        form.getList().forEach(one->{
-            one.setDriverId(driverId);
-        });
-        int rows = orderGpsService.insertOrderGps(form);
-        return R.ok().put("rows",rows);
-    }
+//    @PostMapping("/insertOrderGps")
+//    @SaCheckLogin
+//    @Operation(summary = "添加订单GPS记录")
+//    public R insertOrderGps(@RequestBody @Valid InsertOrderGpsForm form){
+//        long driverId = StpUtil.getLoginIdAsLong();
+//        form.getList().forEach(one->{
+//            one.setDriverId(driverId);
+//        });
+//        int rows = orderGpsService.insertOrderGps(form);
+//        return R.ok().put("rows",rows);
+//    }
 }

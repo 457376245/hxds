@@ -91,82 +91,80 @@ public class OrderServiceImpl implements OrderService {
             throw new HxdsException("保存新订单失败");
         }
     }
-//
-//    @Override
-//    @Transactional
-//    @LcnTransaction
-//    public String acceptNewOrder(long driverId, long orderId) {
-//        if (!redisTemplate.hasKey("order#" + orderId)) {
-//            return "抢单失败";
-//        }
-//        redisTemplate.execute(new SessionCallback() {
-//            @Override
-//            public Object execute(RedisOperations operations) throws DataAccessException {
-//                operations.watch("order#" + orderId);
-//                operations.multi();
-//                operations.opsForValue().set("order#" + orderId, driverId);
-//                return operations.exec();
-//            }
-//        });
-//
-//        redisTemplate.delete("order#" + orderId);
-//        HashMap param = new HashMap() {{
-//            put("driverId", driverId);
-//            put("orderId", orderId);
-//        }};
-//        int rows = orderDao.acceptNewOrder(param);
-//        if (rows != 1) {
-//            throw new HxdsException("接单失败，无法更新订单记录");
-//        }
-//        return "接单成功";
-//    }
-//
-//    @Override
-//    public HashMap searchDriverExecuteOrder(Map param) {
-//        HashMap map = orderDao.searchDriverExecuteOrder(param);
-//        return map;
-//    }
-//
-//    @Override
-//    public Integer searchOrderStatus(Map param) {
-//        Integer status = orderDao.searchOrderStatus(param);
-//        if (status == null) {
-////            throw new HxdsException("没有查询到数据，请核对查询条件");
-//            status = 0;
-//        }
-//        return status;
-//    }
-//
-//    @Override
-//    @Transactional
-//    @LcnTransaction
-//    public String deleteUnAcceptOrder(Map param) {
-//        long orderId = MapUtil.getLong(param, "orderId");
-//        if (!redisTemplate.hasKey("order#" + orderId)) {
-//            return "订单取消失败";
-//        }
-//        redisTemplate.execute(new SessionCallback() {
-//            @Override
-//            public Object execute(RedisOperations operations) throws DataAccessException {
-//                operations.watch("order#" + orderId);
-//                operations.multi();
-//                operations.opsForValue().set("order#" + orderId, "none");
-//                return operations.exec();
-//            }
-//        });
-//
-//        redisTemplate.delete("order#" + orderId);
-//        int rows = orderDao.deleteUnAcceptOrder(param);
-//        if (rows != 1) {
-//            return "订单取消失败";
-//        }
-//        rows = orderBillDao.deleteUnAcceptOrderBill(orderId);
-//        if (rows != 1) {
-//            return "账单取消失败";
-//        }
-//        return "订单取消成功";
-//    }
-//
+
+    @Override
+    @Transactional
+    public String acceptNewOrder(long driverId, long orderId) {
+        if (!redisTemplate.hasKey("order#" + orderId)) {
+            return "抢单失败";
+        }
+        redisTemplate.execute(new SessionCallback() {
+            @Override
+            public Object execute(RedisOperations operations) throws DataAccessException {
+                operations.watch("order#" + orderId);
+                operations.multi();
+                operations.opsForValue().set("order#" + orderId, driverId);
+                return operations.exec();
+            }
+        });
+
+        redisTemplate.delete("order#" + orderId);
+        HashMap param = new HashMap() {{
+            put("driverId", driverId);
+            put("orderId", orderId);
+        }};
+        int rows = orderDao.acceptNewOrder(param);
+        if (rows != 1) {
+            throw new HxdsException("接单失败，无法更新订单记录");
+        }
+        return "接单成功";
+    }
+
+    @Override
+    public HashMap searchDriverExecuteOrder(Map param) {
+        HashMap map = orderDao.searchDriverExecuteOrder(param);
+        return map;
+    }
+
+    @Override
+    public Integer searchOrderStatus(Map param) {
+        Integer status = orderDao.searchOrderStatus(param);
+        if (status == null) {
+//            throw new HxdsException("没有查询到数据，请核对查询条件");
+            status = 0;
+        }
+        return status;
+    }
+
+    @Override
+    @Transactional
+    public String deleteUnAcceptOrder(Map param) {
+        long orderId = MapUtil.getLong(param, "orderId");
+        if (!redisTemplate.hasKey("order#" + orderId)) {
+            return "订单取消失败";
+        }
+        redisTemplate.execute(new SessionCallback() {
+            @Override
+            public Object execute(RedisOperations operations) throws DataAccessException {
+                operations.watch("order#" + orderId);
+                operations.multi();
+                operations.opsForValue().set("order#" + orderId, "none");
+                return operations.exec();
+            }
+        });
+
+        redisTemplate.delete("order#" + orderId);
+        int rows = orderDao.deleteUnAcceptOrder(param);
+        if (rows != 1) {
+            return "订单取消失败";
+        }
+        rows = orderBillDao.deleteUnAcceptOrderBill(orderId);
+        if (rows != 1) {
+            return "账单取消失败";
+        }
+        return "订单取消成功";
+    }
+
 //    @Override
 //    public HashMap searchDriverCurrentOrder(long driverId) {
 //        HashMap map = orderDao.searchDriverCurrentOrder(driverId);
