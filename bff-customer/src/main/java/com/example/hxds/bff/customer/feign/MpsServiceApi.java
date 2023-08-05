@@ -18,6 +18,6 @@ public interface MpsServiceApi {
     @PostMapping("/driver/location/searchBefittingDriverAboutOrder")
     public R searchBefittingDriverAboutOrder(SearchBefittingDriverAboutOrderForm form);
 
-//    @PostMapping("/driver/location/searchOrderLocationCache")
-//    public R searchOrderLocationCache(SearchOrderLocationCacheForm form);
+    @PostMapping("/driver/location/searchOrderLocationCache")
+    public R searchOrderLocationCache(SearchOrderLocationCacheForm form);
 }

@@ -23,11 +23,11 @@ public class OrderLocationController {
     @Resource
     private OrderLocationService orderLocationService;
 
-//    @PostMapping("/searchOrderLocationCache")
-//    @Operation(summary = "查询订单定位缓存")
-//    @SaCheckLogin
-//    public R searchOrderLocationCache(@RequestBody @Valid SearchOrderLocationCacheForm form){
-//        HashMap map = orderLocationService.searchOrderLocationCache(form);
-//        return R.ok().put("result",map);
-//    }
+    @PostMapping("/searchOrderLocationCache")
+    @Operation(summary = "查询订单定位缓存")
+    @SaCheckLogin
+    public R searchOrderLocationCache(@RequestBody @Valid SearchOrderLocationCacheForm form){
+        HashMap map = orderLocationService.searchOrderLocationCache(form);
+        return R.ok().put("result",map);
+    }
 }

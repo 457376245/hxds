@@ -21,9 +21,9 @@ public interface OdrServiceApi {
 
     @PostMapping("/order/deleteUnAcceptOrder")
     public R deleteUnAcceptOrder(DeleteUnAcceptOrderForm form);
-//
-//    @PostMapping("/order/hasCustomerCurrentOrder")
-//    public R hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form);
+
+    @PostMapping("/order/hasCustomerCurrentOrder")
+    public R hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form);
 //
 //    @PostMapping("/order/searchOrderForMoveById")
 //    public R searchOrderForMoveById(SearchOrderForMoveByIdForm form);

@@ -45,47 +45,47 @@ public class OrderController {
         HashMap map = orderService.searchDriverExecuteOrder(form);
         return R.ok().put("result", map);
     }
-//
-//    @PostMapping("/searchDriverCurrentOrder")
-//    @SaCheckLogin
-//    @Operation(summary = "查询司机当前订单")
-//    public R searchDriverCurrentOrder() {
-//        long driverId = StpUtil.getLoginIdAsLong();
-//        SearchDriverCurrentOrderForm form = new SearchDriverCurrentOrderForm();
-//        form.setDriverId(driverId);
-//        HashMap map = orderService.searchDriverCurrentOrder(form);
-//        return R.ok().put("result", map);
-//    }
-//
-//    @PostMapping("/searchOrderForMoveById")
-//    @SaCheckLogin
-//    @Operation(summary = "查询订单信息用于司乘同显功能")
-//    public R searchOrderForMoveById(@RequestBody @Valid SearchOrderForMoveByIdForm form) {
-//        long driverId = StpUtil.getLoginIdAsLong();
-//        form.setDriverId(driverId);
-//        HashMap map = orderService.searchOrderForMoveById(form);
-//        return R.ok().put("result", map);
-//    }
-//
-//    @PostMapping("/arriveStartPlace")
-//    @Operation(summary = "司机到达上车点")
-//    @SaCheckLogin
-//    public R arriveStartPlace(@RequestBody @Valid ArriveStartPlaceForm form) {
-//        long driverId = StpUtil.getLoginIdAsLong();
-//        form.setDriverId(driverId);
-//        int rows = orderService.arriveStartPlace(form);
-//        return R.ok().put("rows", rows);
-//    }
-//
-//    @PostMapping("/startDriving")
-//    @Operation(summary = "开始代驾")
-//    @SaCheckLogin
-//    public R startDriving(@RequestBody @Valid StartDrivingForm form) {
-//        long driverId = StpUtil.getLoginIdAsLong();
-//        form.setDriverId(driverId);
-//        int rows = orderService.startDriving(form);
-//        return R.ok().put("rows", rows);
-//    }
+
+    @PostMapping("/searchDriverCurrentOrder")
+    @SaCheckLogin
+    @Operation(summary = "查询司机当前订单")
+    public R searchDriverCurrentOrder() {
+        long driverId = StpUtil.getLoginIdAsLong();
+        SearchDriverCurrentOrderForm form = new SearchDriverCurrentOrderForm();
+        form.setDriverId(driverId);
+        HashMap map = orderService.searchDriverCurrentOrder(form);
+        return R.ok().put("result", map);
+    }
+
+    @PostMapping("/searchOrderForMoveById")
+    @SaCheckLogin
+    @Operation(summary = "查询订单信息用于司乘同显功能")
+    public R searchOrderForMoveById(@RequestBody @Valid SearchOrderForMoveByIdForm form) {
+        long driverId = StpUtil.getLoginIdAsLong();
+        form.setDriverId(driverId);
+        HashMap map = orderService.searchOrderForMoveById(form);
+        return R.ok().put("result", map);
+    }
+
+    @PostMapping("/arriveStartPlace")
+    @Operation(summary = "司机到达上车点")
+    @SaCheckLogin
+    public R arriveStartPlace(@RequestBody @Valid ArriveStartPlaceForm form) {
+        long driverId = StpUtil.getLoginIdAsLong();
+        form.setDriverId(driverId);
+        int rows = orderService.arriveStartPlace(form);
+        return R.ok().put("rows", rows);
+    }
+
+    @PostMapping("/startDriving")
+    @Operation(summary = "开始代驾")
+    @SaCheckLogin
+    public R startDriving(@RequestBody @Valid StartDrivingForm form) {
+        long driverId = StpUtil.getLoginIdAsLong();
+        form.setDriverId(driverId);
+        int rows = orderService.startDriving(form);
+        return R.ok().put("rows", rows);
+    }
 //
 //    @PostMapping("/updateOrderStatus")
 //    @SaCheckLogin

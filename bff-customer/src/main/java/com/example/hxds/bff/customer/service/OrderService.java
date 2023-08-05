@@ -14,11 +14,11 @@ public interface OrderService {
 
     public String deleteUnAcceptOrder(DeleteUnAcceptOrderForm form);
 
-//    public HashMap hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form);
-//
-//    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form);
-//
-//    public boolean confirmArriveStartPlace(ConfirmArriveStartPlaceForm form);
+    public HashMap hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form);
+
+    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form);
+
+    public boolean confirmArriveStartPlace(ConfirmArriveStartPlaceForm form);
 //
 //    public HashMap searchOrderById(SearchOrderByIdForm form);
 //

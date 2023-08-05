@@ -60,59 +60,59 @@ public class OrderServiceImpl implements OrderService {
         map.putAll(cstMap);
         return map;
     }
-//
-//    @Override
-//    public HashMap searchDriverCurrentOrder(SearchDriverCurrentOrderForm form) {
-//        R r = odrServiceApi.searchDriverCurrentOrder(form);
-//        HashMap orderMap = (HashMap) r.get("result");
-//        if (MapUtil.isNotEmpty(orderMap)) {
-//            HashMap map = new HashMap();
-//            long customerId = MapUtil.getLong(orderMap, "customerId");
-//            SearchCustomerInfoInOrderForm infoInOrderForm = new SearchCustomerInfoInOrderForm();
-//            infoInOrderForm.setCustomerId(customerId);
-//            r = cstServiceApi.searchCustomerInfoInOrder(infoInOrderForm);
-//            HashMap cstMap = (HashMap) r.get("result");
-//            map.putAll(orderMap);
-//            map.putAll(cstMap);
-//            return map;
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form) {
-//        R r = odrServiceApi.searchOrderForMoveById(form);
-//        HashMap map = (HashMap) r.get("result");
-//        return map;
-//    }
-//
-//    @Override
-//    @Transactional
-//     
-//    public int arriveStartPlace(ArriveStartPlaceForm form) {
-//        R r = odrServiceApi.arriveStartPlace(form);
-//        int rows = MapUtil.getInt(r, "rows");
-//        if (rows == 1) {
-//            //TODO 发送通知消息
-//        }
-//        return rows;
-//    }
-//
-//    @Override
-//    @Transactional
-//     
-//    public int startDriving(StartDrivingForm form) {
-//        R r = odrServiceApi.startDriving(form);
-//        int rows = MapUtil.getInt(r, "rows");
+
+    @Override
+    public HashMap searchDriverCurrentOrder(SearchDriverCurrentOrderForm form) {
+        R r = odrServiceApi.searchDriverCurrentOrder(form);
+        HashMap orderMap = (HashMap) r.get("result");
+        if (MapUtil.isNotEmpty(orderMap)) {
+            HashMap map = new HashMap();
+            long customerId = MapUtil.getLong(orderMap, "customerId");
+            SearchCustomerInfoInOrderForm infoInOrderForm = new SearchCustomerInfoInOrderForm();
+            infoInOrderForm.setCustomerId(customerId);
+            r = cstServiceApi.searchCustomerInfoInOrder(infoInOrderForm);
+            HashMap cstMap = (HashMap) r.get("result");
+            map.putAll(orderMap);
+            map.putAll(cstMap);
+            return map;
+        }
+        return null;
+    }
+
+    @Override
+    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form) {
+        R r = odrServiceApi.searchOrderForMoveById(form);
+        HashMap map = (HashMap) r.get("result");
+        return map;
+    }
+
+    @Override
+    @Transactional
+
+    public int arriveStartPlace(ArriveStartPlaceForm form) {
+        R r = odrServiceApi.arriveStartPlace(form);
+        int rows = MapUtil.getInt(r, "rows");
+        if (rows == 1) {
+            //TODO 发送通知消息
+        }
+        return rows;
+    }
+
+    @Override
+    @Transactional
+
+    public int startDriving(StartDrivingForm form) {
+        R r = odrServiceApi.startDriving(form);
+        int rows = MapUtil.getInt(r, "rows");
 //        if (rows == 1) {
 //            InsertOrderMonitoringForm monitoringForm = new InsertOrderMonitoringForm();
 //            monitoringForm.setOrderId(form.getOrderId());
 //            nebulaServiceApi.insertOrderMonitoring(monitoringForm);
 //            //TODO 发送通知消息
 //        }
-//
-//        return rows;
-//    }
+
+        return rows;
+    }
 //
 //    @Override
 //    @Transactional

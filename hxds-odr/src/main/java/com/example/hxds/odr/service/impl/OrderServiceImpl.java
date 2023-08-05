@@ -165,70 +165,68 @@ public class OrderServiceImpl implements OrderService {
         return "订单取消成功";
     }
 
-//    @Override
-//    public HashMap searchDriverCurrentOrder(long driverId) {
-//        HashMap map = orderDao.searchDriverCurrentOrder(driverId);
-//        return map;
-//    }
-//
-//    @Override
-//    public HashMap hasCustomerCurrentOrder(long customerId) {
-//        HashMap result = new HashMap();
-//        HashMap map = orderDao.hasCustomerUnAcceptOrder(customerId);
-//        result.put("hasCustomerUnAcceptOrder", map != null);
-//        result.put("unAcceptOrder", map);
-//        Long id = orderDao.hasCustomerUnFinishedOrder(customerId);
-//        result.put("hasCustomerUnFinishedOrder", id != null);
-//        result.put("unFinishedOrder", id);
-//        return result;
-//    }
-//
-//    @Override
-//    public HashMap searchOrderForMoveById(Map param) {
-//        HashMap map = orderDao.searchOrderForMoveById(param);
-//        return map;
-//    }
-//
-//
-//    @Override
-//    @Transactional
-//    @LcnTransaction
-//    public int arriveStartPlace(Map param) {
-//        long orderId = MapUtil.getLong(param, "orderId");
-//        redisTemplate.opsForValue().set("order_driver_arrivied#" + orderId, "1");
-//        int rows = orderDao.updateOrderStatus(param);
-//        if (rows != 1) {
-//            throw new HxdsException("更新订单状态失败");
-//        }
-//        return rows;
-//    }
-//
-//    @Override
-//    public boolean confirmArriveStartPlace(long orderId) {
-//        String key = "order_driver_arrivied#" + orderId;
-//        if (redisTemplate.hasKey(key) && redisTemplate.opsForValue().get(key).toString().equals("1")) {
-//            redisTemplate.opsForValue().set(key, "2");
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    @Override
-//    @Transactional
-//    @LcnTransaction
-//    public int startDriving(Map param) {
-//        long orderId = MapUtil.getLong(param, "orderId");
-//        String key = "order_driver_arrivied#" + orderId;
-////        if(redisTemplate.hasKey(key)&&redisTemplate.opsForValue().get(key).toString().equals("2")){
-////            redisTemplate.delete(key);
-//        int rows = orderDao.updateOrderStatus(param);
-//        if (rows != 1) {
-//            throw new HxdsException("更新订单状态失败");
-//        }
-//        return rows;
-////        }
-////        return 0;
-//    }
+    @Override
+    public HashMap searchDriverCurrentOrder(long driverId) {
+        HashMap map = orderDao.searchDriverCurrentOrder(driverId);
+        return map;
+    }
+
+    @Override
+    public HashMap hasCustomerCurrentOrder(long customerId) {
+        HashMap result = new HashMap();
+        HashMap map = orderDao.hasCustomerUnAcceptOrder(customerId);
+        result.put("hasCustomerUnAcceptOrder", map != null);
+        result.put("unAcceptOrder", map);
+        Long id = orderDao.hasCustomerUnFinishedOrder(customerId);
+        result.put("hasCustomerUnFinishedOrder", id != null);
+        result.put("unFinishedOrder", id);
+        return result;
+    }
+
+    @Override
+    public HashMap searchOrderForMoveById(Map param) {
+        HashMap map = orderDao.searchOrderForMoveById(param);
+        return map;
+    }
+
+
+    @Override
+    @Transactional
+    public int arriveStartPlace(Map param) {
+        long orderId = MapUtil.getLong(param, "orderId");
+        redisTemplate.opsForValue().set("order_driver_arrivied#" + orderId, "1");
+        int rows = orderDao.updateOrderStatus(param);
+        if (rows != 1) {
+            throw new HxdsException("更新订单状态失败");
+        }
+        return rows;
+    }
+
+    @Override
+    public boolean confirmArriveStartPlace(long orderId) {
+        String key = "order_driver_arrivied#" + orderId;
+        if (redisTemplate.hasKey(key) && redisTemplate.opsForValue().get(key).toString().equals("1")) {
+            redisTemplate.opsForValue().set(key, "2");
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    @Transactional
+    public int startDriving(Map param) {
+        long orderId = MapUtil.getLong(param, "orderId");
+        String key = "order_driver_arrivied#" + orderId;
+        if(redisTemplate.hasKey(key)&&redisTemplate.opsForValue().get(key).toString().equals("2")){
+            redisTemplate.delete(key);
+        int rows = orderDao.updateOrderStatus(param);
+        if (rows != 1) {
+            throw new HxdsException("更新订单状态失败");
+        }
+        return rows;
+        }
+        return 0;
+    }
 //
 //    @Override
 //    @Transactional

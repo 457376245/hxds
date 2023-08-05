@@ -51,19 +51,19 @@ public class DriverLocationController {
                 endPlaceLatitude, endPlaceLongitude, mileage);
         return R.ok().put("result", list);
     }
-//
-//    @PostMapping("/updateOrderLocationCache")
-//    @Operation(summary = "更新订单定位缓存")
-//    public R updateOrderLocationCache(@RequestBody @Valid UpdateOrderLocationCacheForm form){
-//        Map param = BeanUtil.beanToMap(form);
-//        driverLocationService.updateOrderLocationCache(param);
-//        return R.ok();
-//    }
-//
-//    @PostMapping("/searchOrderLocationCache")
-//    @Operation(summary = "查询订单定位缓存")
-//    public R searchOrderLocationCache(@RequestBody @Valid SearchOrderLocationCacheForm form){
-//        HashMap map = driverLocationService.searchOrderLocationCache(form.getOrderId());
-//        return R.ok().put("result",map);
-//    }
+
+    @PostMapping("/updateOrderLocationCache")
+    @Operation(summary = "更新订单定位缓存")
+    public R updateOrderLocationCache(@RequestBody @Valid UpdateOrderLocationCacheForm form){
+        Map param = BeanUtil.beanToMap(form);
+        driverLocationService.updateOrderLocationCache(param);
+        return R.ok();
+    }
+
+    @PostMapping("/searchOrderLocationCache")
+    @Operation(summary = "查询订单定位缓存")
+    public R searchOrderLocationCache(@RequestBody @Valid SearchOrderLocationCacheForm form){
+        HashMap map = driverLocationService.searchOrderLocationCache(form.getOrderId());
+        return R.ok().put("result",map);
+    }
 }

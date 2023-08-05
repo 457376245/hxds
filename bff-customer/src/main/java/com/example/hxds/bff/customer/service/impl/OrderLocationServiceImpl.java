@@ -15,10 +15,10 @@ public class OrderLocationServiceImpl implements OrderLocationService {
     private MpsServiceApi mpsServiceApi;
 
 
-//    @Override
-//    public HashMap searchOrderLocationCache(SearchOrderLocationCacheForm form) {
-//        R r = mpsServiceApi.searchOrderLocationCache(form);
-//        HashMap map=(HashMap) r.get("result");
-//        return map;
-//    }
+    @Override
+    public HashMap searchOrderLocationCache(SearchOrderLocationCacheForm form) {
+        R r = mpsServiceApi.searchOrderLocationCache(form);
+        HashMap map=(HashMap) r.get("result");
+        return map;
+    }
 }

@@ -194,13 +194,13 @@ public class OrderServiceImpl implements OrderService {
         String result = MapUtil.getStr(r, "result");
         return result;
     }
-//
-//    @Override
-//    public HashMap hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form) {
-//        R r = odrServiceApi.hasCustomerCurrentOrder(form);
-//        HashMap result = (HashMap) r.get("result");
-//        return result;
-//    }
+
+    @Override
+    public HashMap hasCustomerCurrentOrder(HasCustomerCurrentOrderForm form) {
+        R r = odrServiceApi.hasCustomerCurrentOrder(form);
+        HashMap result = (HashMap) r.get("result");
+        return result;
+    }
 //
 //    @Override
 //    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form) {

@@ -8,5 +8,5 @@ import javax.validation.Valid;
 import java.util.HashMap;
 
 public interface OrderLocationService {
-//    public HashMap searchOrderLocationCache(SearchOrderLocationCacheForm form);
+    public HashMap searchOrderLocationCache(SearchOrderLocationCacheForm form);
 }

@@ -54,34 +54,34 @@ public class OrderController {
         return R.ok().put("result", result);
     }
 
-//    @PostMapping("/hasCustomerCurrentOrder")
-//    @SaCheckLogin
-//    @Operation(summary = "查询乘客是否存在当前的订单")
-//    public R hasCustomerCurrentOrder() {
-//        long customerId = StpUtil.getLoginIdAsLong();
-//        HasCustomerCurrentOrderForm form = new HasCustomerCurrentOrderForm();
-//        form.setCustomerId(customerId);
-//        HashMap map = orderService.hasCustomerCurrentOrder(form);
-//        return R.ok().put("result", map);
-//    }
-//
-//    @PostMapping("/searchOrderForMoveById")
-//    @SaCheckLogin
-//    @Operation(summary = "查询订单信息用于司乘同显功能")
-//    public R searchOrderForMoveById(@RequestBody @Valid SearchOrderForMoveByIdForm form) {
-//        long customerId = StpUtil.getLoginIdAsLong();
-//        form.setCustomerId(customerId);
-//        HashMap map = orderService.searchOrderForMoveById(form);
-//        return R.ok().put("result", map);
-//    }
-//
-//    @PostMapping("/confirmArriveStartPlace")
-//    @SaCheckLogin
-//    @Operation(summary = "确定司机已经到达")
-//    public R confirmArriveStartPlace(@RequestBody @Valid ConfirmArriveStartPlaceForm form) {
-//        boolean result = orderService.confirmArriveStartPlace(form);
-//        return R.ok().put("result", result);
-//    }
+    @PostMapping("/hasCustomerCurrentOrder")
+    @SaCheckLogin
+    @Operation(summary = "查询乘客是否存在当前的订单")
+    public R hasCustomerCurrentOrder() {
+        long customerId = StpUtil.getLoginIdAsLong();
+        HasCustomerCurrentOrderForm form = new HasCustomerCurrentOrderForm();
+        form.setCustomerId(customerId);
+        HashMap map = orderService.hasCustomerCurrentOrder(form);
+        return R.ok().put("result", map);
+    }
+
+    @PostMapping("/searchOrderForMoveById")
+    @SaCheckLogin
+    @Operation(summary = "查询订单信息用于司乘同显功能")
+    public R searchOrderForMoveById(@RequestBody @Valid SearchOrderForMoveByIdForm form) {
+        long customerId = StpUtil.getLoginIdAsLong();
+        form.setCustomerId(customerId);
+        HashMap map = orderService.searchOrderForMoveById(form);
+        return R.ok().put("result", map);
+    }
+
+    @PostMapping("/confirmArriveStartPlace")
+    @SaCheckLogin
+    @Operation(summary = "确定司机已经到达")
+    public R confirmArriveStartPlace(@RequestBody @Valid ConfirmArriveStartPlaceForm form) {
+        boolean result = orderService.confirmArriveStartPlace(form);
+        return R.ok().put("result", result);
+    }
 //
 //    @PostMapping("/searchOrderById")
 //    @SaCheckLogin
