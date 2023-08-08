@@ -14,10 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 @FeignClient(value = "hxds-nebula", configuration = MultipartSupportConfig.class)
 public interface NebulaServiceApi {
 
-//    @PostMapping(value = "/monitoring/uploadRecordFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//    public R uploadRecordFile(@RequestPart(value = "file") MultipartFile file,
-//                              @RequestPart("name") String name,
-//                              @RequestPart(value = "text", required = false) String text);
+    @PostMapping(value = "/monitoring/uploadRecordFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public R uploadRecordFile(@RequestPart(value = "file") MultipartFile file,
+                              @RequestPart("name") String name,
+                              @RequestPart(value = "text", required = false) String text);
 //
 //    @PostMapping(value = "/monitoring/insertOrderMonitoring")
 //    public R insertOrderMonitoring(InsertOrderMonitoringForm form);

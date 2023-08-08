@@ -33,7 +33,7 @@ public interface OrderService {
 
     public int startDriving(Map param);
 //
-//    public int updateOrderStatus(Map param);
+    public int updateOrderStatus(Map param);
 //
 //    public ArrayList<HashMap> searchOrderStartLocationIn30Days();
 //

@@ -113,14 +113,14 @@ public class OrderServiceImpl implements OrderService {
 
         return rows;
     }
-//
-//    @Override
-//    @Transactional
-//     
-//    public int updateOrderStatus(UpdateOrderStatusForm form) {
-//        R r = odrServiceApi.updateOrderStatus(form);
-//        int rows = MapUtil.getInt(r, "rows");
-//        //TODO 判断订单的状态，然后实现后续业务
+
+    @Override
+    @Transactional
+
+    public int updateOrderStatus(UpdateOrderStatusForm form) {
+        R r = odrServiceApi.updateOrderStatus(form);
+        int rows = MapUtil.getInt(r, "rows");
+        //TODO 判断订单的状态，然后实现后续业务
 //        if (rows != 1) {
 //            throw new HxdsException("订单状态修改失败");
 //        }
@@ -136,9 +136,9 @@ public class OrderServiceImpl implements OrderService {
 //            messageForm.setMsg("您有代驾订单待支付");
 //            snmServiceApi.sendPrivateMessageSync(messageForm);
 //        }
-//
-//        return rows;
-//    }
+
+        return rows;
+    }
 //
 //    @Override
 //    @Transactional

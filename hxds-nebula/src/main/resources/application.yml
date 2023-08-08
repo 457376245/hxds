@@ -14,28 +14,26 @@ spring:
     name: hxds-nebula
   cloud:
     inetutils:
-      #子系统注册到Nacos上的IP地址
-      preferred-networks: 127.0.0.1
+      preferred-networks: localhost
     nacos:
-      #配置子系统在Web管理页面上的注册信息
+      #配置中心
       config:
         group: DEFAULT_GROUP
         file-extension: yaml
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
         prefix: ${spring.application.name}
         namespace: hxds
-      #配置子系统在Nacos上的注册信息
       discovery:
         namespace: hxds
         username: nacos
         password: nacos
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
         heart-beat-interval: 1000
         heart-beat-timeout: 1000
         group: DEFAULT_GROUP
   datasource:
     driver-class-name: org.apache.phoenix.queryserver.client.Driver
-    url: jdbc:phoenix:thin:url=http://localhost:8765;serialization=PROTOBUF
+    url: jdbc:phoenix:thin:url=http://127.0.0.1:8765;serialization=PROTOBUF
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       test-on-borrow: true

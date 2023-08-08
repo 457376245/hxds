@@ -201,21 +201,21 @@ public class OrderServiceImpl implements OrderService {
         HashMap result = (HashMap) r.get("result");
         return result;
     }
-//
-//    @Override
-//    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form) {
-//        R r = odrServiceApi.searchOrderForMoveById(form);
-//        HashMap result = (HashMap) r.get("result");
-//        return result;
-//    }
-//
-//    @Override
-//    public boolean confirmArriveStartPlace(ConfirmArriveStartPlaceForm form) {
-//        R r = odrServiceApi.confirmArriveStartPlace(form);
-//        boolean result = MapUtil.getBool(r, "result");
-//        return result;
-//    }
-//
+
+    @Override
+    public HashMap searchOrderForMoveById(SearchOrderForMoveByIdForm form) {
+        R r = odrServiceApi.searchOrderForMoveById(form);
+        HashMap result = (HashMap) r.get("result");
+        return result;
+    }
+
+    @Override
+    public boolean confirmArriveStartPlace(ConfirmArriveStartPlaceForm form) {
+        R r = odrServiceApi.confirmArriveStartPlace(form);
+        boolean result = MapUtil.getBool(r, "result");
+        return result;
+    }
+
 //    @Override
 //    public HashMap searchOrderById(SearchOrderByIdForm form) {
 //        R r = odrServiceApi.searchOrderById(form);

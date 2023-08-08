@@ -166,14 +166,14 @@ public class OrderController {
         int rows = orderService.startDriving(param);
         return R.ok().put("rows", rows);
     }
-//
-//    @PostMapping("/updateOrderStatus")
-//    @Operation(summary = "更新订单状态")
-//    public R updateOrderStatus(@RequestBody @Valid UpdateOrderStatusForm form) {
-//        Map param = BeanUtil.beanToMap(form);
-//        int rows = orderService.updateOrderStatus(param);
-//        return R.ok().put("rows", rows);
-//    }
+
+    @PostMapping("/updateOrderStatus")
+    @Operation(summary = "更新订单状态(司机端停止代驾)")
+    public R updateOrderStatus(@RequestBody @Valid UpdateOrderStatusForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        int rows = orderService.updateOrderStatus(param);
+        return R.ok().put("rows", rows);
+    }
 //
 //    @PostMapping("/searchOrderByPage")
 //    @Operation(summary = "查询订单分页记录")
